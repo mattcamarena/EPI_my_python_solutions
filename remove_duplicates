@@ -1,0 +1,15 @@
+def remove_duplicates(L: ListNode) -> Optional[ListNode]:
+    if L is None:
+        return None
+        
+    head = L
+    prev = L
+    curr = prev.next
+    while curr:
+        if curr.data == prev.data:
+            prev.next = curr.next
+            curr = prev.next
+        else:
+            prev = curr
+            curr = prev.next
+    return head
